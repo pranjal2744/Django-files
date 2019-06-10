@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% block content %}
+		    
+<h1>Video Uploader</h1>
+<form enctype="multipart/form-data" method="POST" action="">
+{% csrf_token %}
+{{ form.as_p }}
+ 
+<input type="submit" value="Upload"/>
+</form>
+  <h5>Metadata URL: {{MEDIA_URL}}{{videofile}}</h5>
+  <br>
+  <a href="/"><input type="submit" value="Watch Video"/></a>
+  <br>
+<video width='400' controls>
+<source src='{{ MEDIA_URL }}{{videofile}}' type='video/mp4'>
+Your browser does not support the video tag.
+</video>
+<br><br>
+<br><br>
+
+</p>
+	
+{% endblock content %}
